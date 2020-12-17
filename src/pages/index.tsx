@@ -1,7 +1,7 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import logo from '../images/msp_stuttering_group-logo.png';
 import FacebookIcon from '../icons/facebook.svg';
 import InstagramIcon from '../icons/instagram.svg';
 
@@ -34,8 +34,46 @@ export default () => {
     }
   `);
 
+  const description =
+    'MSP Stuttering Group is a social group for individuals who stutter.';
+
   return (
     <div className="relative w-screen min-h-screen">
+      <Helmet
+        htmlAttributes={{ lang: 'en' }}
+        title="Minneapolis Saint Paul Stuttering Group"
+        meta={[
+          {
+            name: 'description',
+            content: description,
+          },
+          {
+            property: 'og:title',
+            content: 'Minneapolis Saint Paul Stuttering Group',
+          },
+          {
+            property: 'og:description',
+            content: description,
+          },
+          {
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary',
+          },
+          {
+            name: 'twitter:title',
+            content: 'Minneapolis Saint Paul Stuttering Group',
+          },
+          {
+            name: 'twitter:description',
+            content: description,
+          },
+        ]}
+      />
+
       <div className="fixed inset-0">
         <Img
           fluid={images.coleAndBriann.childImageSharp.fluid}
@@ -237,6 +275,14 @@ export default () => {
                 </a>
               </div>
             </nav>
+
+            <p className="mt-8 text-center text-base text-gray-400">
+              MSP Stuttering Group is a social group for individuals who stutter
+              that meets in the Twin Cities of Saint Paul and Minneapolis and in
+              greater Minnesota. MSP Stuttering Group is faciliated by Cole
+              Oehlers, a person who stutters, and Briann Morbitzer, an ASHA
+              certified speech-language pathologist.
+            </p>
 
             <p className="mt-8 text-center text-base text-gray-400">
               <span className="inline-block">
